@@ -1,10 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { marked } from 'marked'
 import Link from 'next/link'
 import { slugify, ImageUrl } from '../../utils'
 import { NextSeo } from 'next-seo';
+import ExportedImage from "next-image-export-optimizer";
+import ReactMarkdown from "react-markdown"
+
+
+
 
 export default function PostPage({ content, frontmatter }) {
   const date = new Date(frontmatter.date)
@@ -20,6 +24,7 @@ export default function PostPage({ content, frontmatter }) {
       }
      }
     )
+   
 
    
   return (
@@ -47,7 +52,7 @@ export default function PostPage({ content, frontmatter }) {
         <div className="row">
           <div className="col-lg-10 m-auto">
             <div className='card card-page'>
-              <a href={`/blog/${frontmatter.slug}`} > <img className="card-img-top" src={ImageUrl(frontmatter.image)} alt="..." /></a>
+              <Link href={`/blog/${frontmatter.slug}`} > <img className="card-img-top" src={ImageUrl(frontmatter.image)} alt="..." /></Link>
 
               <h1 className='post-title mt-2 p-2'>{frontmatter.title}</h1>
               <div className='post-date m-1 p-2'>
@@ -59,10 +64,9 @@ export default function PostPage({ content, frontmatter }) {
 
                       const slug = slugify(category)
 
-                      return (<Link key={category} href={`/category/${slug}`}>
-                        <a className='btn'>
+                      return (<Link className='btn' key={category} href={`/category/${slug}`}>
+                       
                           <h6 className=' post-title'>#{category}</h6>
-                        </a>
                       </Link>)
                     }
                   )
@@ -70,10 +74,32 @@ export default function PostPage({ content, frontmatter }) {
 
 
               </div>
-
-              <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}>
-
-              </div>
+              <ReactMarkdown className='post-body p-5 m-auto' children={content}  components={{
+                image ({ src, alt, ...props }) {
+                  return <ExportedImage src={src} alt={alt}  width={500} {...props}/>;
+                },
+                p: ({ node, children }) => {
+                      if (node.children[0].tagName === "img") {
+                          const image = node.children[0];
+                          return (
+                              <div className="image">
+                                  <ExportedImage
+                                      src={image.properties.src}
+                                      alt={image.properties.alt}
+                                      width="600"
+                                      height="300"
+                                  />
+                              </div>
+                          );
+                      }
+                      // Return default child if it's not an image
+                      return <p>{children}</p>;
+                  },
+       
+              }}/>
+              {/* <div className='post-body p-5 m-auto' dangerouslySetInnerHTML={{ __html: marked.parse(content) }}>
+                    
+              </div> */}
             </div>
           </div>
         </div>
@@ -134,11 +160,16 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { data: frontmatter, content } = matter(markdownWithMeta)
 
+ 
+
+  
+
   return {
     props: {
       frontmatter,
       slug,
       content,
+      
     },
   }
 }

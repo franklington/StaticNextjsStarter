@@ -18,8 +18,8 @@ export default function Sidebar() {
         <div className="card-body">
           <div className="input-group">
             <input onChange={findSerach} className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-            <Link href={{ pathname: '/Search', query: { q: search?.toLowerCase() } }}> 
-              <a className="btn btn-primary" id="button-search">Go!</a>
+            <Link className="btn btn-primary" id="button-search" href={{ pathname: '/Search', query: { q: search?.toLowerCase() } }}> 
+              Go!
             </Link>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Sidebar() {
                         const slug = slugify(item)
                        
                         return <Link key={item} href={`/category/${slug}`}>
-                          <a> <li> {item} </li></a>
+                         <li> {item} </li>
                         </Link>
                       }
                     )

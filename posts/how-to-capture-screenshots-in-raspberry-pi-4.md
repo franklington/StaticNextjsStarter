@@ -15,6 +15,8 @@ title : "How to capture screenshots in Raspberry PI 4"
 
 
 
+
+
 In Raspberry pi 4, you take the screenshot help of two software. The first is scort, and the second is Gnome Screenshot.
 
 I'm personally recommended you use Gnome Screenshot. Gnome Screenshot provides a graphical interface. You use a graphical interface to take screenshots very easily.
@@ -45,6 +47,7 @@ Now you can find Gnome Screenshot in your accessories menu, listed as "Screensho
 
 
 Gnome interface is very easy to understand. You use Gnome to get a Screenshot, add your own image name, and after save it. By default, all pic save inside your Picture folder.
+
 
 ![interface look like](http://localhost:3000/images/gnome-screenshots.png)
 
