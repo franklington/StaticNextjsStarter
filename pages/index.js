@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import Post from '../components/Post'
 import Banner from "../components/Banner";
 import Sidebar from "../components/Sidebar"
+import PostCarousel from "../components/PostCarousel"
 import { sortByDate, slugify,ImageUrl} from '../utils'
 
 export default function Home({ posts }) {
@@ -38,10 +39,7 @@ export default function Home({ posts }) {
 
           <div className="col-lg-8">
 
-            {posts.map((post, index) => (
-              <Post key={index} post={post} />
-            ))}
-
+            <PostCarousel limit={3} posts={posts}></PostCarousel>
 
           </div>
 
@@ -71,6 +69,9 @@ export async function getStaticProps() {
       path.join('posts', filename),
       'utf-8'
     )
+
+
+
 
     const { data: frontmatter } = matter(markdownWithMeta)
 
