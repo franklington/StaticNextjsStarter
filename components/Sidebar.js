@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Search from "../search.json";
 import { slugify } from "../utils";
 
-export default function Sidebar() {
+export default function Sidebar({className}) {
   const [search, setSearch]= useState()
   function findSerach(value) {
    
@@ -11,7 +11,7 @@ export default function Sidebar() {
   }
  
   return (
-    <div className="col-lg-4">
+    <div className={`col-lg-4 ${className}`}>
 
       <div className="card mb-4">
         <div className="card-header">Search</div>

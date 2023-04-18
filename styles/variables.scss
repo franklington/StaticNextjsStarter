@@ -1,0 +1,82 @@
+:root{
+    --darkgreen:#657310;
+    --ligthgreen: #ADC289;
+
+    --darkorange:#E5734F;
+    --lightorange:#FEB36D;
+
+    --darkblue:#406CC9;
+    --lightblue:#6792ee;
+
+    --darkred:#BD1616;
+    --lightred:#f64d4d;
+
+    --darkrose:#C388A1;
+    --lightrose:#e9b0c9;
+    
+
+    --black:#282828;
+    --white:#fff;
+    --whitegreyish:#F3F0EC;
+
+
+    --primary:var(--darkgreen); 
+    --primarylight:var(--ligthgreen); 
+
+    --accent:var(--darkorange); 
+    --accentlight:var(--lightorange); 
+
+    --bg-color:var(--white);
+    --font-color:var(--black);
+
+    --link-color:var(--darkblue);
+
+
+    --primary-font: ABC Repro Variable Unlicensed Trial, sans-serif;
+    --secondary-font: CliftonTrial, serif;
+
+    --fontsize-sm:16px;
+    --line-height-sm:1.35;
+
+    --fontsize-md:18px;
+    --line-height-md:1.35;
+
+    --fontsize-lg:20px;
+    --line-height-lg:1.35;
+
+    --fontsize-xl:28px;
+    --line-height-xl:1.35;
+
+
+
+}
+
+$fontsize-sm:var(--fontsize-sm);
+$line-height-sm:var(--line-height-sm);
+
+$fontsize-md:var(--fontsize-md);
+$line-height-md:var(--line-height-md);
+
+$fontsize-lg:var(--fontsize-lg);
+$line-height-lg:var(--line-height-lg);
+$fontsize-xl:var(--fontsize-xl);
+$line-height-xl:var(--line-height-xl);
+
+
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 786px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1400px;
+
+
+$border-radius:1rem;
+
+

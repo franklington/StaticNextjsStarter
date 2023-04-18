@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Keyshape -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" style="white-space: pre;">
+    <style>
+@keyframes jue6dzz5s07wtqcyae0oxnrd_t { 0% { transform: translate(4px,10.974024px); animation-timing-function: cubic-bezier(0.007245,0.47629,0.068159,1); } 45% { transform: translate(4px,5.733548px); animation-timing-function: cubic-bezier(0.543583,0,1,0.469041); } 100% { transform: translate(4px,10.733549px); } }
+    </style>
+    <ellipse rx="2" ry="2" fill="#dddddd" stroke="none" transform="translate(4,10.974)" style="animation: 2s linear infinite both jue6dzz5s07wtqcyae0oxnrd_t;"/>
+</svg>

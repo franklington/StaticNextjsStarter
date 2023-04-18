@@ -1,0 +1,24 @@
+$breakpoints: (sm: #{$screen-sm-min},
+    md: #{$screen-md-min},
+    lg: #{$screen-lg-min},
+    xl: #{$screen-xl-min});
+
+@mixin create-text($breakpoint: null) {
+    $infix: if($breakpoint==null, '', '-#{$breakpoint}');
+    .text#{$infix}-center {
+        text-align: center;
+    }
+    .text#{$infix}-left {
+        text-align: left;
+    }
+}
+
+
+@include create-text;
+
+@each $breakpoint,
+$width in $breakpoints {
+    @media (min-width: $width) {
+        @include create-text($breakpoint);
+    }
+}

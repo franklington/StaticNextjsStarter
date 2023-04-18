@@ -7,7 +7,7 @@ import Post from './Post';
 
 export default function PostCarousel({  orderBy, limit = -1, order, posts}) {
   const filteredPosts = posts.slice(0, limit);
-
+  
   return (
     <div className='row'>
       <div className='col'>

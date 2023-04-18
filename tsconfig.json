@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/PostCarousel.jsx", "components/Post.jsx", "components/PostCarousel.jsx", "pages/blog/[slug].js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,0 +1,332 @@
+html,
+body {
+    font-size: $fontsize-sm;
+    font-weight: 400;
+    font-family: var(--primary-font);
+    line-height: var(--line-height-sm);
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    text-rendering: geometricPrecision;
+
+    @include sm {
+        font-size: $fontsize-sm;
+        line-height: $line-height-sm;
+
+    }
+
+    @include md {
+        font-size: $fontsize-md;
+        line-height: $line-height-md;
+
+    }
+
+    @include lg {
+        font-size: $fontsize-lg;
+        line-height: $line-height-lg;
+
+    }
+
+    @include xl {
+        font-size: $fontsize-xl;
+        line-height: $line-height-xl;
+
+    }
+}
+
+p{
+    color: inherit;
+    margin: 0;
+    padding: 0;
+   
+}
+p.short {
+    max-width: 33ch;
+    margin-bottom: 0.5rem;
+}
+h1, h2, h3 {
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.7rem;
+    line-height: 1;
+}
+h1{
+    
+    font-size: 2.3rem;
+}
+h2{
+    font-size: 1.75rem;
+}
+
+h2.alternative{
+    font-size: 1.75rem;
+    font-family: var(--secondary-font);
+    line-height: 1;
+    font-style: Italic;
+    @include md{
+        font-size: 2rem;
+    }
+
+   
+}
+h3{
+    font-size: 1.25rem;
+}
+
+
+blockquote{
+    font-size: 2rem;
+    @include md{
+        font-size: 3rem;
+    }
+
+    @include lg{
+        font-size: 4rem;
+    }
+
+    color: inherit;
+    font-family: var(--secondary-font);
+    line-height: 1;
+    font-style: Italic;
+    vertical-align: middle;
+    text-align: center;
+    max-width: 20ch;
+
+}
+blockquote.inverted,blockquote.inverted>mark{
+    color: var(--bg-color);
+}
+mark{
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    z-index: 2;
+}
+mark::before{
+    content: "";
+    z-index: -1;
+    display: block;
+    position: absolute;
+    border-radius: $border-radius;
+    left: 0;
+    top: 0;
+    top: 35%;
+    height: 65%;
+    width: 100%;
+    background-color: var(--primarylight);
+}
+mark.alter::before {
+    background-color: var(--accentlight);
+}
+
+a{
+    color: var(--font-color);
+}
+
+
+input[type=button], button, a.btn{
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.75em 2rem;
+    background-color: transparent;
+    color: var(--font-color);
+    border: 1px solid var(--font-color);
+    border-radius: $border-radius;
+    white-space:nowrap;
+    word-wrap: normal;
+}
+
+
+input[type=button].primary, button.primary, a.btn.primary{
+    background-color: var(--accentlight);
+    color: var(--secondary);
+    border-color: var(--accent);
+}
+
+input[type=button].inverted, button.inverted, a.inverted{
+    background-color: var(--font-color);
+    color: var(--bg-color);
+    border-color: var(--bg-color);
+}
+
+input[type=text], input[type=number],input[type=password], input[type=email]  {
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    border: 1px solid var(--font-color);
+    border-radius: $border-radius;
+}
+
+label{
+    font-feature-settings: "ss16";
+    font-size: 3.5rem;
+    font-variation-settings: "wght" 254;
+    line-height:1;
+    margin-top: -0.5rem;
+    
+}
+
+gap{
+    @extend .col-12;
+    display: block;
+    width: 100%;
+    height: 50vh;
+}
+
+.fullwidth{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100vw);
+    height: 100%;
+    z-index: 0;
+
+}
+
+
+
+
+
+object.anime {
+    width: 100%;
+    height: auto;
+    
+}
+
+
+
+.bg-primary{
+    background-color: var(--primary);
+    color: var(--bg-color);
+}
+.bg{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100vw);
+    height: 100%;
+    z-index: 0;
+}
+.fg{
+    position: relative;
+    z-index: 1;
+}
+.bg-black{
+    background-color: var(--black); 
+}
+
+.bg-white{
+    background-color: var(--white); 
+}
+
+
+
+.bg-gradient{
+   background: linear-gradient(180deg, #242424 0%, #418DFF 60.00%, #F8FFA388 80.00%, #ffffffff 100%); 
+}
+.bg-pink{
+    background-color: var(--darkrose);
+}
+.bg-radius{
+    margin: 0 0;
+    width: 100%;
+    border-radius: $border-radius;
+}
+.b-radius{
+    border-radius: $border-radius;
+}
+
+
+.p-relative{
+    position: relative;
+}
+.p-absolute{
+    position: absolute;
+}
+
+
+.inverted{
+    color: var(--bg-color);
+}
+
+
+// SPECIALS
+.flowers{
+    @include sm{
+        margin-top: 5rem;
+    }
+    @include lg{
+        bottom: 3rem;
+        right: 3rem;
+        width: auto;
+    }
+    
+}
+.navbar-brand{
+    display: inline-block;
+    max-height: 40px;
+    padding: 10px;
+}
+
+
+
+.hand-one{
+    width: 30% !important;
+    transform: scaleX(-100%);
+    @include sm{
+        transform: scaleX(1);
+    }
+}
+
+.hand-two{
+    width: 60% !important;
+    transform: scaleX(-100%);
+    @include sm{
+        transform: scaleX(1);
+    }
+}
+
+.problem-list-point{
+    display: flex;
+    column-gap: 4%;
+    flex-flow: row wrap;
+  
+    label{
+        width: 100%;
+        text-align: right;
+        transform: translate(0, 23px);
+    }
+    .fl-col{
+        max-width: 33ch;
+        width: 33ch;
+    }
+
+    @include sm{
+        flex-wrap: nowrap;
+        label{
+            width: auto;
+            text-align: left;
+            transform: translate(0, 0px);
+        }
+    }
+}
+
+.side-icons{
+    width: 5%;
+}
+
+.fade-in{
+    display: block;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s;
+}

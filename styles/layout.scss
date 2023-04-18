@@ -1,0 +1,208 @@
+$columns: 12;
+$gap: 2%; //calc(100vw / 120 * 5);
+
+$gaps:6;
+
+
+// SPACERS 
+
+
+$spaceamounts: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+
+$breakpoints: (sm: #{$screen-sm-min},
+    md: #{$screen-md-min},
+    lg: #{$screen-lg-min},
+    xl: #{$screen-xl-min});
+
+@mixin create-selectors($breakpoint: null) {
+    $infix: if($breakpoint==null, '', '-#{$breakpoint}');
+    .col#{$infix}-auto {
+        position: relative;
+        grid-column:auto;
+    }
+
+    @for $i from 0 through $columns {
+        .col#{$infix}-#{$i} {
+            position: relative;
+            grid-column-end: span $i;
+        }
+
+        .col-offset#{$infix}-#{$i} {
+            grid-column-start: $i + 1;
+        }
+
+        .row#{$infix}-#{$i} {
+            grid-row-end: span $i;
+        }
+
+        .row-offset#{$infix}-#{$i} {
+            grid-row-start: $i + 1;
+        }
+
+        .order#{$infix}-#{$i} {
+            order: $i;
+        }
+
+    }
+}
+
+@include create-selectors;
+
+@each $breakpoint,
+$width in $breakpoints {
+    @media (min-width: $width) {
+        @include create-selectors($breakpoint);
+    }
+}
+
+grid,
+.grid {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-auto-rows: auto;
+    //grid-gap: $gap;
+    //gap: $gap;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@mixin create-spacers($breakpoint: null) {
+    $infix: if($breakpoint==null, '', '-#{$breakpoint}');
+
+
+
+    @for $i from 0 through $gaps {
+        @each $side in $sides{
+            .m#{str-slice($side, 0, 1)}#{$infix}-#{$i} {
+                margin-#{$side}: $i * $gap !important;
+            }
+    
+            .p#{str-slice($side, 0, 1)}#{$infix}-#{$i} {
+                padding-#{$side}: $i * $gap !important;
+            }  
+        }
+
+        .gap#{$infix}-#{$i} {
+            gap: $gap*$i !important;
+        }
+
+        .my#{$infix}-#{$i} {
+            margin-top: $i * $gap !important;
+            margin-bottom: $i * $gap !important;
+        }
+
+        .mx#{$infix}-#{$i} {
+            margin-left: $i * $gap !important;
+            margin-right: $i * $gap !important;
+        }
+
+        .m#{$infix}-#{$i} {
+            margin-top: $i * $gap !important;
+            margin-bottom: $i * $gap !important;
+            margin-left: $i * $gap !important;
+            margin-right: $i * $gap !important;
+        }
+
+        .py#{$infix}-#{$i} {
+            padding-top: $i * $gap !important;
+            padding-bottom: $i * $gap !important;
+        }
+
+        .px#{$infix}-#{$i} {
+            padding-left: $i * $gap !important;
+            padding-right: $i * $gap !important;
+        }
+
+        .p#{$infix}-#{$i} {
+            padding-top: $i * $gap !important;
+            padding-bottom: $i * $gap !important;
+            padding-left: $i * $gap !important;
+            padding-right: $i * $gap !important;
+        }
+
+        .mt#{$infix}-n#{$i} {
+            margin-top: $gap*-1* $i !important;
+        }
+    }
+    .fl#{$infix}-row{
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    
+    
+    
+    }
+    .fl#{$infix}-col{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    
+    
+    }
+    .fl#{$infix}-wrap{
+        flex-wrap: wrap;
+    }
+    .ju#{$infix}-start{
+        justify-content: flex-start;
+    
+    }
+    .ju#{$infix}-center{
+        justify-content: center;
+    
+    }
+    .ju#{$infix}-end{
+        justify-content: flex-end;
+    
+    }
+    .al#{$infix}-start{
+        align-items: flex-start;
+    
+    }
+    .al#{$infix}-end{
+        align-items: flex-end;
+    
+    }
+    .al#{$infix}-center{
+        align-items: center;
+    }
+    
+}
+
+@include create-spacers;
+
+@each $breakpoint,
+$width in $breakpoints {
+    @media (min-width: $width) {
+        @include create-spacers($breakpoint);
+    }
+}
+
+//Helpers
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 0 $gap*2;
+
+    @extend .px-md-1;
+
+
+}
+
+
