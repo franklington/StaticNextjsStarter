@@ -6,7 +6,7 @@ module.exports = withBundleAnalyzer({})
 module.exports = {
   reactStrictMode: true,
   output: 'export',
-  distDir: 'html',
+  distDir: 'out',
   compress: true,
 
   images: {

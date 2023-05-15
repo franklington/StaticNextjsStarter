@@ -12,12 +12,15 @@ import DemoItems from '../components/DemoItems';
 import Anime from "../components/Anime";
 import Link from 'next/link';
 import ExportedImage from 'next-image-export-optimizer';
+import { motion,useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Home({ posts }) {
-
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   return (
-    <grid>
+    <grid >
       <NextSeo
         title="Welcome to my blog home page"
         description="Build nextjs blog website with Markdown, sitemap, serachbar, category, tag and SEO support"
@@ -49,13 +52,36 @@ export default function Home({ posts }) {
 
           </div>
           <grid class="col-12 gap-4">
-          <div className='col-12 order-md-2 col-md-6 mt-sm-5'>
+          <div ref={ref}  className='col-12 order-md-2 col-md-6 mt-sm-5'>
               <h2 className='alternative'>...and share to little.</h2>
               <p className='short'>Since 1971, more than 50 years, we incur debts to the planet every year. Every year we push the boundaries further and further. Today, 1.75 Earths would be needed to provide enough resources for all people. Resources which aren’t shared equally, unfortunately.</p>
             </div>
-            <div className='col-12 order-md-1 col-md-6 py-md-5'>
+            <motion.div className='col-12 order-md-1 col-md-6 py-md-5'
+                                        initial={"hidden"}
+                                        animate={isInView ? "visible" : "hidden" }
+
+                                        variants={{
+                                          visible:{
+                                            transition:{
+                                              duration:1
+                                            },
+                                            y:0,
+                                            opacity:1
+
+                                          },
+                                          hidden:{
+                                            transition:{
+                                              duration:1
+                                            },
+                                            y:"100%",
+                                            opacity:0
+
+                                          }
+                                        }}
+            
+            >
               <Anime src="./images/earths.svg" alt="Earthovershoot Day" width="1000"></Anime>
-            </div>
+            </motion.div>
 
 
           </grid>

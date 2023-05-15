@@ -1,3 +1,3 @@
-const SITE_URL= 'https://markdowbnextjsblog.vercel.app/'
+const SITE_URL= 'https://sharingclub.site/'
 
 export default SITE_URL

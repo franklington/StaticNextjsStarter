@@ -1,13 +1,14 @@
 export default {
     openGraph: {
       type: 'website',
-      locale: 'en_IE',
-      url: 'https://markdownnextjs.com',
-      site_name: 'Rajdeep Singh',
+      locale: 'de_DE',
+      url: 'https://sharingclub.site',
+      site_name: 'Sharing Club',
     },
-    twitter: {
-        handle: '@Official_R_deep',
-        site: '@Official_R_deep',
-        cardType: 'summary_large_image',
-    }
+    title: 'Sharing Club',
+    titleTemplate: ' %s | Share The Future',
+    defaultTitle: 'Sharing Club',
+    description: 'The Sharing Club is about to connect people, build strong communties, fight waste and actively shape the world to a better place.',
+
+
   };
